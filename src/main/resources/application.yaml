@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: box-dispatch-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/box_dispatch
+    username: postgres
+    password: mypassword
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+
+  flyway:
+    enabled: true
+
+server:
+  port: 8080

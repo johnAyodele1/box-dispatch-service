@@ -1,0 +1,37 @@
+INSERT INTO boxes (
+    id,
+    txref,
+    weight_limit_grams,
+    battery_percentage,
+    state,
+    created_at,
+    updated_at
+)
+VALUES
+(
+    '11111111-1111-1111-1111-111111111111',
+    'BOX-001',
+    500,
+    85,
+    'IDLE',
+    CURRENT_TIMESTAMP,
+    CURRENT_TIMESTAMP
+),
+(
+    '22222222-2222-2222-2222-222222222222',
+    'BOX-002',
+    500,
+    15,
+    'IDLE',
+    CURRENT_TIMESTAMP,
+    CURRENT_TIMESTAMP
+),
+(
+    '33333333-3333-3333-3333-333333333333',
+    'BOX-003',
+    400,
+    60,
+    'IDLE',
+    CURRENT_TIMESTAMP,
+    CURRENT_TIMESTAMP
+);
