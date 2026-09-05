@@ -3,9 +3,9 @@ spring:
     name: box-dispatch-service
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/box_dispatch
-    username: postgres
-    password: mypassword
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/box_dispatch}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD}
 
   jpa:
     hibernate:
@@ -16,4 +16,4 @@ spring:
     enabled: true
 
 server:
-  port: 8080
+  port: ${PORT:8080}

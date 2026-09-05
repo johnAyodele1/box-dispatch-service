@@ -319,6 +319,18 @@ com.example.boxdispatch
 
 ## Assumptions
 
+## API Documentation
+
+The project uses OpenAPI and Swagger UI.
+
+After starting the application, open:
+
+http://localhost:8080/swagger-ui.html
+
+The OpenAPI specification is available at:
+
+http://localhost:8080/v3/api-docs
+
 - New boxes start as `IDLE`.
 - Weight is stored in grams.
 - Battery is stored as a percentage from 0 to 100.
