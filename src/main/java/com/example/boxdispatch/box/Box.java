@@ -1,5 +1,7 @@
 package com.example.boxdispatch.box;
 
+import com.example.boxdispatch.box.exception.InsufficientBatteryException;
+import com.example.boxdispatch.box.exception.InvalidBoxStateException;
 import com.example.boxdispatch.item.Item;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -90,6 +92,42 @@ public class Box {
 
     public List<Item> getItems() {
         return items;
+    }
+
+    public void addItem(Item item) {
+        items.add(item);
+    }
+
+    public void startLoading() {
+        if (state != BoxState.IDLE) {
+            throw new InvalidBoxStateException(
+                "Box must be IDLE to start loading"
+            );
+        }
+
+        if (batteryPercentage < 25) {
+            throw new InsufficientBatteryException(
+                "Box battery must be at least 25% to start loading"
+            );
+        }
+
+        state = BoxState.LOADING;
+        touch();
+    }
+
+    public void finishLoading() {
+        if (state != BoxState.LOADING) {
+            throw new InvalidBoxStateException(
+                "Box must be LOADING to finish loading"
+            );
+        }
+
+        state = BoxState.LOADED;
+        touch();
+    }
+
+    private void touch() {
+        updatedAt = OffsetDateTime.now();
     }
 
     public OffsetDateTime getCreatedAt() {
